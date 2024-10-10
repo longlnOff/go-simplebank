@@ -1,0 +1,10 @@
+
+
+
+logger:
+  log_level: debug
+  file_log_name: ./logs/log.txt
+  max_size: 500   # max file log size, in Megabytes
+  max_backups: 3
+  max_age: 28     # 28 days
+  compress: true

@@ -4,10 +4,11 @@ import (
 	"context"
 	"testing"
 	"github.com/stretchr/testify/require"
+	"github.com/longln/go-simplebank/global"
 )
 
 func TestTransferTx(t *testing.T) {
-	store := NewStore(testDB)
+	store := NewStore(global.TestDB)
 
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)

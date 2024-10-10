@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	_ "github.com/lib/pq"
+	"github.com/longln/go-simplebank/global"
 )
 
 const (
@@ -14,14 +15,14 @@ const (
 )
 
 var testQueries *Queries
-var testDB *sql.DB
+// var testDB *sql.DB
 
 func TestMain(m *testing.M) {
 	var err error
-	testDB, err = sql.Open(dbDriver, dbSource)
+	global.TestDB, err = sql.Open(dbDriver, dbSource)
 	if err != nil {
 		panic(err)
 	}
-	testQueries = New(testDB)
+	testQueries = New(global.TestDB)
 	os.Exit(m.Run())
 }
