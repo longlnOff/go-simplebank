@@ -108,7 +108,7 @@ func TestTransferTx(t *testing.T) {
 
 
 func TestTransferTxDeadLock(t *testing.T) {
-	store := NewStore(testDB)
+	store := NewStore(global.TestDB)
 
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)
