@@ -1,0 +1,3 @@
+2024-10-13T22:14:12.508+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:29	Postgres intialization success
+2024-10-13T22:14:58.924+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:29	Postgres intialization success
+2024-10-13T22:15:19.662+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success

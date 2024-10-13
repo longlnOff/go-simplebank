@@ -7,20 +7,20 @@ import (
 
 
 func LoadConfig() {
-	config := viper.New()
+	viper := viper.New()
 
-	config.AddConfigPath("local")
+	viper.AddConfigPath("/home/longln/SourceCode/github.com/longln/go-simplebank/local")
 
-	config.SetConfigName("config")
+	viper.SetConfigName("config")
 
-	config.SetConfigType("yaml")
+	viper.SetConfigType("yaml")
 
 
-	if err := config.ReadInConfig(); err != nil {
+	if err := viper.ReadInConfig(); err != nil {
 		panic(err)
 	}
 
-	if err := config.Unmarshal(&global.Config); err != nil {
+	if err := viper.Unmarshal(&global.Config); err != nil {
 		panic(err)
 	}
 }
