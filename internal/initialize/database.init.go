@@ -25,7 +25,6 @@ func InitDataBase() {
     CheckErrorPanic(err, "cannot connect to database")
     global.Logger.Info("Postgres intialization success")
 	global.TestDB = db
-
 	SetPool()
 }
 

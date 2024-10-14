@@ -3,6 +3,13 @@ package setting
 type Config struct {
 	LogConfig LogConfig `mapstructure:"logger"`
 	DatabaseConfig DataBaseConfig `mapstructure:"database"`
+	ServerConfig ServerConfig `mapstructure:"server"`
+}
+
+type ServerConfig struct {
+	Port int `mapstructure:"port"`
+	Address string `mapstructure:"address"`
+	Mode string `mapstructure:"mode"`
 }
 
 type LogConfig struct {

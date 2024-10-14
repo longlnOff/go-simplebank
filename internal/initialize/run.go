@@ -1,7 +1,11 @@
 package initialize
 
 import (
+	"fmt"
+
 	_ "github.com/lib/pq"
+
+	"github.com/longln/go-simplebank/global"
 )
 func Run() {
 	// 1. Load config
@@ -14,6 +18,8 @@ func Run() {
 
 	// 4. Cache (redis) init
 
-	// 5. Run Server
-	
+	// 5. Init Router
+	r := InitRouter()
+	addressString := fmt.Sprintf("%s:%d", global.Config.ServerConfig.Address, global.Config.ServerConfig.Port)
+	r.Run(addressString)
 }

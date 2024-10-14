@@ -22,8 +22,11 @@ down_migrate:
 sqlc:
 	sqlc generate
 
-test:
+test_all:
 	go test -v -cover ./...
 
+server:
+	go run cmd/server/main.go
 
-.phony: test sqlc start_docker stop_docker postgres up_migrate down_migrate
+
+.phony: server test_all sqlc start_docker stop_docker postgres up_migrate down_migrate

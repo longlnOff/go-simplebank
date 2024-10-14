@@ -1,3 +1,6 @@
-2024-10-13T22:14:12.508+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:29	Postgres intialization success
-2024-10-13T22:14:58.924+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:29	Postgres intialization success
-2024-10-13T22:15:19.662+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T13:45:08.754+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T13:47:48.723+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T13:49:06.060+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T13:51:31.004+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T14:04:53.174+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/initialize/database.init.go:26	Postgres intialization success
+2024-10-14T14:30:39.891+0700	[34mINFO[0m	/home/longln/SourceCode/github.com/longln/go-simplebank/internal/database/main_test.go:61	Postgres intialization success
