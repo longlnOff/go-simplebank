@@ -8,22 +8,28 @@ import (
 
 // Create store object to extend db and queries operations
 
+type Store interface {
+	Querier
+	TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResults, error)
+}
 
-type Store struct {
+
+
+type SQLStore struct {
 	DB *sql.DB		// to perform db transaction
 	*Queries		// to perform individual query
 } // --> so use Store, we can combine individual queries and db transaction
 
 
-func NewStore(db *sql.DB) *Store {
-	return &Store{
+func NewStore(db *sql.DB) Store {
+	return &SQLStore{
 		DB: db,
 		Queries: New(db),
 	}
 }
 
 // execTx executes a function within a database transaction
-func (store *Store) execTx(ctx context.Context, fn func(q *Queries) error) error {
+func (store *SQLStore) execTx(ctx context.Context, fn func(q *Queries) error) error {
 	// tx begin
 	tx, err := store.DB.BeginTx(ctx, nil)  // we can set isolation level, default is read-committed in postgres
 	if err != nil {
@@ -61,7 +67,7 @@ type TransferTxResults struct {
 	ToEntry Entry `json:"to_entry"`
 }
 
-func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResults, error) {
+func (store *SQLStore) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResults, error) {
 	var result TransferTxResults
 
 	err := store.execTx(ctx, func(q *Queries) error {

@@ -19,7 +19,7 @@ type IAccountRepository interface {
 }
 
 type accountRepository struct {
-	store *db.Store
+	store db.Store
 }
 
 func (ar *accountRepository) AddAccount(ctx context.Context, arg db.AddAccountParams) (db.Account, error) {

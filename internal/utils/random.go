@@ -34,8 +34,12 @@ func RandomMoney() int64 {
 }
 
 func RandomCurrency() string {
-	currencies := []string{"USD", "EUR", "CAD"}
+	currencies := []string{USD, EUR, CAD}
 	rng := rand.New(rand.NewSource(time.Now().UnixNano()))
 	n := len(currencies)
 	return currencies[rng.Intn(n)]
+}
+
+func RandomEmail() string {
+	return RandomString(6) + "@" + "email" + ".com"
 }

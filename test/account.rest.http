@@ -1,17 +1,37 @@
-@baseUrl=http://localhost:8080/v1/account
+@baseUrl=http://localhost:8080
 
 
-# POST {{baseUrl}}/account
+# POST {{baseUrl}}/accounts
 # Content-type: application/json
 
 # {
-#     "owner": "lelong123",
-#     "currency": "USD"
+#     "owner": "nMNLgL",
+#     "currency": "EUR"
 # }
 
 
-# GET {{baseUrl}}/account/00
+# GET {{baseUrl}}/account/1
 
 
-GET {{baseUrl}}/accounts?page_id=10000&page_size=10
+# GET {{baseUrl}}/accounts?page_id=2&page_size=10
 
+# POST {{baseUrl}}/transfers
+# Content-type: application/json
+
+# {
+#     "from_account_id": 4,
+#     "to_account_id": 9,
+#     "amount": 100,
+#     "currency": "mad"
+# }
+
+
+POST {{baseUrl}}/users
+Content-type: application/json
+
+{
+    "user_name": "ydsfgdgdg",
+    "full_name": "nMNLgL",
+    "email": "lonqgl4n@gmail.com",
+    "password": "nMNLgL"
+}

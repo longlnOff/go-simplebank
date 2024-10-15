@@ -28,5 +28,20 @@ test_all:
 server:
 	go run cmd/server/main.go
 
+main_go:
+	go run main.go
 
-.phony: server test_all sqlc start_docker stop_docker postgres up_migrate down_migrate
+mock:
+	mockgen -package mockdb -destination internal/database/mock/store.go github.com/longln/go-simplebank/internal/database Store
+
+
+one_up_migrate:
+	migrate -path sql/schema -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
+
+one_down_migrate:
+	migrate -path sql/schema -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+
+
+
+.phony: one_up_migrate one_down_migrate
+.phony: mock server test_all sqlc start_docker stop_docker postgres up_migrate down_migrate
