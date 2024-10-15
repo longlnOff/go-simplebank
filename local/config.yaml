@@ -21,3 +21,7 @@ database:
   max_idle_conns: 10
   max_open_conns: 100
   conn_max_lifetime: 60
+
+token:
+  token_symmetric_key: 12345678901234567890123456789012
+  access_token_duration: 15m

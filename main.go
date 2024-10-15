@@ -15,7 +15,7 @@ func main() {
 	initialize.InitDataBase()
 
 	store := db.NewStore(global.TestDB)
-	server := api.NewServer(store)
+	server, _ := api.NewServer(store)
 	address := fmt.Sprintf("%s:%d", global.Config.ServerConfig.Address, global.Config.ServerConfig.Port)
 	err := server.Start(address)
 	if err != nil {

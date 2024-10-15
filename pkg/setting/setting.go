@@ -1,9 +1,17 @@
 package setting
 
+import "time"
+
 type Config struct {
 	LogConfig LogConfig `mapstructure:"logger"`
 	DatabaseConfig DataBaseConfig `mapstructure:"database"`
 	ServerConfig ServerConfig `mapstructure:"server"`
+	TokenConfig TokenConfig `mapstructure:"token"`
+}
+
+type TokenConfig struct {
+	TokenSymmetricKey string `mapstructure:"token_symmetric_key"`
+	AccessTokenDuration time.Duration `mapstructure:"access_token_duration"`
 }
 
 type ServerConfig struct {

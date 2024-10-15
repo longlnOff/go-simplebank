@@ -26,12 +26,20 @@
 # }
 
 
-POST {{baseUrl}}/users
+# POST {{baseUrl}}/users
+# Content-type: application/json
+
+# {
+#     "user_name": "ydsfgdgdg",
+#     "full_name": "nMNLgL",
+#     "email": "lonqgl4n@gmail.com",
+#     "password": "nMNLgL"
+# }
+
+POST {{baseUrl}}/users/login
 Content-type: application/json
 
 {
     "user_name": "ydsfgdgdg",
-    "full_name": "nMNLgL",
-    "email": "lonqgl4n@gmail.com",
     "password": "nMNLgL"
 }
