@@ -2,11 +2,13 @@ package api
 
 import (
 	"database/sql"
+	"errors"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lib/pq"
 	db "github.com/longln/go-simplebank/internal/database"
+	"github.com/longln/go-simplebank/internal/token"
 	"github.com/longln/go-simplebank/internal/vo"
 )
 
@@ -18,9 +20,9 @@ func (server *Server) createAccount(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, errHandler(err))
 		return
 	}
-
+	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Payload)
 	account, err := server.store.CreateAccount(ctx, db.CreateAccountParams{
-		Owner: params.Owner,
+		Owner: authPayload.Username,
 		Balance: 0,
 		Currency: params.Currency,
 	})
@@ -51,7 +53,7 @@ func (server *Server) getAccount(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, errHandler(err))
 		return
 	}
-
+	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Payload)
 	account, err := server.store.GetAccount(ctx, params.ID)
 
 	if err != nil {
@@ -60,6 +62,11 @@ func (server *Server) getAccount(ctx *gin.Context) {
 			return
 		}
 		ctx.JSON(http.StatusInternalServerError, errHandler(err))
+		return
+	}
+	if account.Owner != authPayload.Username {
+		err := errors.New("account doesn't belong to the authenticated user")
+		ctx.JSON(http.StatusUnauthorized, errHandler(err))
 		return
 	}
 
@@ -73,8 +80,9 @@ func (server *Server) listAccounts(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, errHandler(err))
 		return
 	}
-
+	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Payload)
 	accounts, err := server.store.ListAccounts(ctx, db.ListAccountsParams{
+		Owner: authPayload.Username,
 		Limit: params.PageID,
 		Offset: (params.PageID-1)*params.PageSize,
 	})

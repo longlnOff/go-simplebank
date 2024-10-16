@@ -2,28 +2,31 @@
 
 
 # POST {{baseUrl}}/accounts
+# Authorization: Bearer v2.local.YDafl_pS289Wg0vrD7R0VB5jQllkaAVYsQR8IZElx4PFCEjmhhHielXE2ajzvSxKDZr0fwZyMU01A8YCsVJ-tTaAh7nt_qFPXJCD7Gw1EOudH_P89UOWA1iF8VeBmYq7elLirdCI5cBHIYewdZ6lLmp-e6EM632GFfk79EP4yNascdCLcKxdlWKCqLq49PZTWGb-stsWEGY5UP5YFeifKNugqI48mpN9_ZYj9oyKZkhWMrUurC6GR1QVfHymZ5y8WPjvvWssCPrlxTgGI79mAO8.bnVsbA
 # Content-type: application/json
 
 # {
-#     "owner": "nMNLgL",
-#     "currency": "EUR"
+#     "currency": "CAD"
 # }
 
 
-# GET {{baseUrl}}/account/1
+# GET {{baseUrl}}/account/60
+# Authorization: Bearer v2.local.YDafl_pS289Wg0vrD7R0VB5jQllkaAVYsQR8IZElx4PFCEjmhhHielXE2ajzvSxKDZr0fwZyMU01A8YCsVJ-tTaAh7nt_qFPXJCD7Gw1EOudH_P89UOWA1iF8VeBmYq7elLirdCI5cBHIYewdZ6lLmp-e6EM632GFfk79EP4yNascdCLcKxdlWKCqLq49PZTWGb-stsWEGY5UP5YFeifKNugqI48mpN9_ZYj9oyKZkhWMrUurC6GR1QVfHymZ5y8WPjvvWssCPrlxTgGI79mAO8.bnVsbA
 
 
-# GET {{baseUrl}}/accounts?page_id=2&page_size=10
+# GET {{baseUrl}}/accounts?page_id=1&page_size=5
+# Authorization: Bearer v2.local.YDafl_pS289Wg0vrD7R0VB5jQllkaAVYsQR8IZElx4PFCEjmhhHielXE2ajzvSxKDZr0fwZyMU01A8YCsVJ-tTaAh7nt_qFPXJCD7Gw1EOudH_P89UOWA1iF8VeBmYq7elLirdCI5cBHIYewdZ6lLmp-e6EM632GFfk79EP4yNascdCLcKxdlWKCqLq49PZTWGb-stsWEGY5UP5YFeifKNugqI48mpN9_ZYj9oyKZkhWMrUurC6GR1QVfHymZ5y8WPjvvWssCPrlxTgGI79mAO8.bnVsbA
 
-# POST {{baseUrl}}/transfers
-# Content-type: application/json
+POST {{baseUrl}}/transfers
+Authorization: Bearer v2.local.YDafl_pS289Wg0vrD7R0VB5jQllkaAVYsQR8IZElx4PFCEjmhhHielXE2ajzvSxKDZr0fwZyMU01A8YCsVJ-tTaAh7nt_qFPXJCD7Gw1EOudH_P89UOWA1iF8VeBmYq7elLirdCI5cBHIYewdZ6lLmp-e6EM632GFfk79EP4yNascdCLcKxdlWKCqLq49PZTWGb-stsWEGY5UP5YFeifKNugqI48mpN9_ZYj9oyKZkhWMrUurC6GR1QVfHymZ5y8WPjvvWssCPrlxTgGI79mAO8.bnVsbA
+Content-type: application/json
 
-# {
-#     "from_account_id": 4,
-#     "to_account_id": 9,
-#     "amount": 100,
-#     "currency": "mad"
-# }
+{
+    "from_account_id": 60,
+    "to_account_id": 10,
+    "amount": 100,
+    "currency": "USD"
+}
 
 
 # POST {{baseUrl}}/users
